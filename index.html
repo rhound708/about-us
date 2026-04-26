@@ -2,11 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>L+P💛</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>L+P 💛</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
 
     body {
       background: radial-gradient(circle at top, #0a0a0a, #000);
@@ -14,49 +21,80 @@
       overflow: hidden;
     }
 
+    /* Glow background */
+    .glow {
+      position: fixed;
+      width: 450px;
+      height: 450px;
+      background: rgba(255, 100, 160, 0.15);
+      filter: blur(120px);
+      top: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 0;
+      pointer-events: none;
+      animation: float 10s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%,100% { transform: translate(-50%, 0); }
+      50% { transform: translate(-50%, 40px); }
+    }
+
+    /* Scene system (FIX CRUCIALE) */
     section {
-      height: 100vh;
+      position: absolute;
+      inset: 0;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 20px;
       text-align: center;
-      position: absolute;
-      width: 100%;
-      top: 0;
-      left: 0;
+      padding: 20px;
+
       opacity: 0;
-      transition: opacity 1.2s ease;
+      pointer-events: none;
+      transition: opacity 1s ease;
+      z-index: 1;
     }
 
-    section.active { opacity: 1; }
+    section.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
 
-    h1 { font-size: 2.5rem; margin-bottom: 10px; }
-    h2 { font-weight: 300; opacity: 0.7; }
+    h1 {
+      font-size: 2.6rem;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-weight: 300;
+      opacity: 0.75;
+      max-width: 600px;
+    }
 
     .card {
-      max-width: 500px;
       width: 100%;
+      max-width: 520px;
       background: rgba(255,255,255,0.05);
       backdrop-filter: blur(15px);
       border-radius: 20px;
       padding: 20px;
       box-shadow: 0 0 40px rgba(255,255,255,0.05);
-      animation: fadeUp 1s ease;
     }
 
     iframe {
       width: 100%;
-      height: 300px;
+      height: 280px;
+      border: none;
       border-radius: 12px;
       margin-top: 15px;
-      border: none;
     }
 
-    .btn {
-      margin-top: 30px;
-      padding: 12px 25px;
+    button {
+      margin-top: 25px;
+      padding: 12px 24px;
       border-radius: 30px;
       border: none;
       background: rgba(255,255,255,0.1);
@@ -65,111 +103,109 @@
       transition: 0.3s;
     }
 
-    .btn:hover { background: rgba(255,255,255,0.25); }
-
-    .glow {
-      position: fixed;
-      width: 400px;
-      height: 400px;
-      background: rgba(255, 120, 180, 0.2);
-      filter: blur(120px);
-      top: 20%;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: -1;
-      animation: float 10s infinite ease-in-out;
-      pointer-events: none;
+    button:hover {
+      background: rgba(255,255,255,0.25);
+      transform: scale(1.03);
     }
 
-    @keyframes float {
-      0%,100% { transform: translate(-50%, 0); }
-      50% { transform: translate(-50%, 40px); }
+    .message {
+      max-width: 650px;
+      font-size: 1.2rem;
+      line-height: 1.8;
+      opacity: 0.9;
     }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .message { max-width: 600px; font-size: 1.2rem; line-height: 1.8; }
 
   </style>
 </head>
+
 <body>
 
 <div class="glow"></div>
 
+<!-- SCENE 0 -->
 <section class="active" id="scene0">
   <h1>Per te amore mio 💛</h1>
-  <h2>Non è solo una pagina… è un piccolo viaggio tra noi</h2>
-  <button class="btn" onclick="nextScene()">Inizia</button>
+  <h2>Non è solo una pagina ma un qualcosa che continuerà a crescere come noi</h2>
+  <button onclick="nextScene()">Inizia</button>
 </section>
 
+<!-- SCENE 1 -->
 <section id="scene1">
   <div class="card">
-    <h3>Quella sera...</h3>
-    <p>Grande kebab di massimo</p>
+    <h3>Kebab di massimo</h3>
+    <p>Come faccio a non amare la tua risata</p>
     <iframe src="https://open.spotify.com/embed/track/6lK2xptPzLPmvpE29U4mDH"></iframe>
-    <button class="btn" onclick="nextScene()">Continua</button>
+    <button onclick="nextScene()">Continua</button>
   </div>
 </section>
 
+<!-- SCENE 2 -->
 <section id="scene2">
   <div class="card">
-    <h3>Questa siamo noi</h3>
+    <h3>Noi</h3>
     <p>La canzone che ci rappresenta</p>
     <iframe src="https://open.spotify.com/embed/track/3kT9XwpkPH4esqzF0enISu"></iframe>
-    <button class="btn" onclick="nextScene()">Continua</button>
+    <button onclick="nextScene()">Continua</button>
   </div>
 </section>
 
+<!-- SCENE 3 -->
 <section id="scene3">
   <div class="card">
-    <h3>Ricordi</h3>
-    <p>Il grande porto dove si trova l'orientale</p>
+    <h3>Il mitico porto di via marina</h3>
+    <p>Sempre bello cantare anche quando non ricordo il testo</p>
     <iframe src="https://open.spotify.com/embed/track/2opZnbrOLF2rj14Oslz76K"></iframe>
-    <button class="btn" onclick="nextScene()">Continua</button>
+    <button onclick="nextScene()">Continua</button>
   </div>
 </section>
 
+<!-- SCENE 4 -->
 <section id="scene4">
   <div class="card">
-    <h3>L'inizio</h3>
-    <p>La canzone che mi ha fatto pensare a te</p>
+    <h3>Inizio di tutto</h3>
+    <p>La prima volta che ho pensato a te davvero</p>
     <iframe src="https://open.spotify.com/embed/track/66sE0ohP0YCyUXARYL71iX"></iframe>
-    <button class="btn" onclick="nextScene()">Continua</button>
+    <button onclick="nextScene()">Continua</button>
   </div>
 </section>
 
+<!-- SCENE 5 -->
 <section id="scene5">
-  <div class="message" id="typeText"></div>
+  <div class="message" id="text"></div>
 </section>
 
 <script>
   let current = 0;
   const scenes = document.querySelectorAll("section");
 
-  function nextScene() {
-    scenes[current].classList.remove("active");
-    current++;
-    if (scenes[current]) {
-      scenes[current].classList.add("active");
-    }
-    if (current === scenes.length - 1) startTyping();
+  function showScene(index) {
+    scenes.forEach(s => s.classList.remove("active"));
+    scenes[index].classList.add("active");
   }
 
-  const text = "Sono sicuro che ti piacerà... ma la verità è che non è questo il punto. Il punto sei tu. Tutto quello che vedi qui, ogni canzone, ogni parola... esiste solo perché esisti tu. Ti amo 💛";
-  let i = 0;
+  function nextScene() {
+    if (current < scenes.length - 1) {
+      current++;
+      showScene(current);
+      if (current === scenes.length - 1) startTyping();
+    }
+  }
 
+  // typewriter finale
+  const msg =
+    "Non è una collezione di canzoni. È un pezzo di noi. Ogni nota, ogni parola… esiste perché esisti tu. Perché esistiamo noi 💛";
+
+  let i = 0;
   function startTyping() {
+    const el = document.getElementById("text");
     function type() {
-      if (i < text.length) {
-        document.getElementById("typeText").innerHTML += text.charAt(i);
+      if (i < msg.length) {
+        el.innerHTML += msg[i];
         i++;
-        setTimeout(type, 20);
+        setTimeout(type, 25);
       }
     }
-    setTimeout(type, 500);
+    setTimeout(type, 400);
   }
 </script>
 
