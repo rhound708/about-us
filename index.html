@@ -15,10 +15,20 @@
       font-family: 'Poppins', sans-serif;
     }
 
-    body {
-      background: radial-gradient(circle at top, #0a0a0a, #000);
+    html, body {
+      height: 100%;
+      background: #000;
       color: #fff;
+    }
+
+    body {
+      min-height: 100vh;
+      background: radial-gradient(circle at top, #0a0a0a, #000);
       overflow: hidden;
+    }
+
+    * {
+      color: #fff;
     }
 
     /* Glow background */
@@ -163,14 +173,24 @@
 <section id="scene4">
   <div class="card">
     <h3>Inizio di tutto</h3>
-    <p>La prima volta che ho pensato a te davvero</p>
+    <p>Con questa canzone e i tuoi occhi dolci ho iniziato piano piano a cadere ai tuoi piedi</p>
     <iframe src="https://open.spotify.com/embed/track/66sE0ohP0YCyUXARYL71iX"></iframe>
     <button onclick="nextScene()">Continua</button>
   </div>
 </section>
 
-<!-- SCENE 5 -->
+<!-- SCENE 4 -->
 <section id="scene5">
+  <div class="card">
+    <h3>Il mio nome preferito</h3>
+    <p>Per ricordarti quanto è incantevole il tuo nome ho chiesto l'aiuto del bro</p>
+    <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/4qfhJANVbltHdayStVa2lg"></iframe>
+    <button onclick="nextScene()">Continua</button>
+  </div>
+</section>
+
+<!-- SCENE 6 -->
+<section id="scene6">
   <div class="message" id="text"></div>
 </section>
 
